@@ -1,97 +1,731 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
+  <title>Compasso Solidário: Ajudando Moradores de Rua em Belo Horizonte</title>
+  <meta name="title" content="Compasso Solidário: Ajudando Moradores de Rua em Belo Horizonte.">
+  <meta name="description" content="Compasso Solidário: Ajudando Moradores de Rua em Belo Horizonte">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-banner.jpg">
+  <link rel="preload" as="image" href="./assets/images/Blog.svg">
 
 </head>
+
 <body>
 
-<div class="container">
+  <!-- 
+    - #HEADER
+  -->
 
-    <form action="">
+  <header class="header" data-header>
+    <div class="container">
 
-        <div class="row">
+      <a href="#" class="logo">
+        <img src="data:image/png;base64,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" width="64" height="24" alt="Compasso Solidario">
+      </a>
 
-            <div class="col">
+      <nav class="navbar" data-navbar>
 
-                <h3 class="title">Endereço de Cobrança</h3>
+        <div class="navbar-top">
+          <a href="#" class="logo">
+            <img src="data:image/png;base64,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" width="64" height="24" alt="Compasso Solidario">
+          </a>
 
-                <div class="inputBox">
-                    <span>Nome Completo :</span>
-                    <input type="text" placeholder="joão da silva">
-                </div>
-                <div class="inputBox">
-                    <span>E-mail :</span>
-                    <input type="email" placeholder="exemplo@exemplo.com">
-                </div>
-                <div class="inputBox">
-                    <span>Endereço :</span>
-                    <input type="text" placeholder="número - rua - bairro">
-                </div>
-                <div class="inputBox">
-                    <span>Cidade :</span>
-                    <input type="text" placeholder="são paulo">
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>Estado :</span>
-                        <input type="text" placeholder="brasil">
-                    </div>
-                    <div class="inputBox">
-                        <span>CEP :</span>
-                        <input type="text" placeholder="12345-678">
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col">
-
-                <h3 class="title">Pagamento</h3>
-
-                <div class="inputBox">
-                    <span>Cartões Aceitos :</span>
-                    <img src="imgcards.png" alt="">
-                </div>
-                <div class="inputBox">
-                    <span>Nome no Cartão :</span>
-                    <input type="text" placeholder="sr. joão da silva">
-                </div>
-                <div class="inputBox">
-                    <span>Número do Cartão de Crédito :</span>
-                    <input type="number" placeholder="1111-2222-3333-4444">
-                </div>
-                <div class="inputBox">
-                    <span>Mês de Expiração :</span>
-                    <input type="text" placeholder="janeiro">
-                </div>
-
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>Ano de Expiração :</span>
-                        <input type="number" placeholder="2022">
-                    </div>
-                    <div class="inputBox">
-                        <span>CVV :</span>
-                        <input type="text" placeholder="1234">
-                    </div>
-                </div>
-
-            </div>
-    
+          <button class="nav-close-btn" aria-label="close menu" data-nav-toggler>
+            <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+          </button>
         </div>
 
-        <input type="submit" value="Proceder para o Pagamento" class="submit-btn">
+        <ul class="navbar-list">
 
-    </form>
+          <li>
+            <a href="#" class="navbar-link">Como Doar</a>
+          </li>
 
-</div>    
-    
+          <li>
+            <a href="#" class="navbar-link">Sobre</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Projetos</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Blog</a>
+          </li>
+
+          <li>
+            <a href="#" class="navbar-link">Contato</a>
+          </li>
+
+        </ul>
+
+        <div class="wrapper">
+          <a href="mailto:info@email.com" class="contact-link">info@email.com</a>
+
+          <a href="tel:001234567890" class="contact-link">00 (123) 456 78 90</a>
+        </div>
+
+        <ul class="social-list">
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-dribbble"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="social-link">
+              <ion-icon name="logo-youtube"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </nav>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
+  </header>
+
+
+
+
+
+  <main>
+    <article>
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="section hero" aria-label="home">
+        <div class="container">
+
+          <figure class="hero-banner">
+            <img src="https://institutopovodomar.org.br/wp-content/uploads/2021/10/Sem-Titulo-1.png" width="560" height="540" alt="Compasso Solidario" class="w-100"
+              data-reveal="top">
+
+            <img src="https://institutopovodomar.org.br/wp-content/uploads/2021/10/Sem-Titulo-1.png" width="450" height="350" alt="250+ Projects Done" class="shape"
+              data-reveal="top" data-reveal-delay="0.25s">
+          </figure>
+
+          <div class="hero-content">
+
+            <h1 class="h1 hero-title" data-reveal="top" data-reveal-delay="0.5s">
+            Compasso Solidário: Ajudando Moradores de Rua em Belo Horizonte.
+            </h1>
+
+            <p class="section-text" data-reveal="top" data-reveal-delay="0.75s">
+              O Compasso Solidário é uma plataforma dedicada a conectar doadores generosos aos moradores de rua que necessitam de apoio em Belo Horizonte. Faça parte desta missão de compaixão e transformação hoje.
+
+            </p>
+
+            <div class="btn-wrapper" data-reveal="top" data-reveal-delay="1s">
+              <a href="#" class="btn btn-primary">Conheça o projeto</a>
+
+              <a href="#" class="btn btn-secondary">Doe Agora</a>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+
+      <section class="donations section">
+        <div class="container">
+          <h2 class="h2 section-title">Instituições que Receberam Doações</h2>
+          <div class="grid-list">
+            <div class="card2">
+              <h3 class="h3 card-title">Somos do Bhem</h3>
+              <p class="texto">
+                A "Somos do Bhem" é uma organização sem fins lucrativos que apoia mulheres e mães em situação de vulnerabilidade social em Belo Horizonte, oferecendo oportunidades de capacitação, empoderamento e cidadania. Eles promovem doações em dinheiro, alimentos, roupas, livros e mais, visando combater a desigualdade e criar uma corrente de solidariedade.
+              </p>
+              <a href="#" class="button">Conheça</a>
+            </div>
+            <div class="card2">
+              <h3 class="h3 card-title">Inaper BH</h3>
+              <p class="texto">
+                O Instituto de Apoio e Resgate (Inaper) se dedica a promover a dignidade e autonomia de pessoas em situação de rua em Belo Horizonte, oferecendo acolhimento, apoio psicossocial, e programas de desenvolvimento pessoal e profissional. Eles também mantêm a "Casa Lar", uma moradia coletiva e definitiva para pessoas em situação de rua.
+              </p>
+              <a href="#" class="button">Conheça</a>
+            </div>
+            <div class="card2">
+              <h3 class="h3 card-title">Casa de Refúgio</h3>
+              <p class="texto">
+                A Casa de Refúgio oferece acolhimento temporário para pessoas em situação de rua, proporcionando alimentação, roupas, e encaminhamento para serviços de saúde e assistência social. Eles trabalham com voluntários e doações para garantir a segurança e dignidade dos assistidos.
+              </p>
+              <a href="#" class="button">Conheça</a>
+            </div>
+            <!-- Adicione mais cartões conforme necessário -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- 
+        - #ABOUT
+      -->
+
+      <section class="section about" aria-label="about">
+        <div class="container">
+
+          <div class="wrapper">
+
+            <div data-reveal="left">
+              <h2 class="h2 section-title">O que é o projeto?</h2>
+
+              <p class="section-text">
+                Compasso Solidário é um aplicativo inovador que conecta doadores aos moradores de rua em Belo Horizonte, facilitando doações transparentes e direcionadas para suprir suas necessidades essenciais. Com uma interface intuitiva, os usuários podem explorar perfis de instituições parceiras, doar financeiramente e acompanhar o impacto de suas contribuições em tempo real. Nosso objetivo é promover solidariedade, oferecer esperança e melhorar a qualidade de vida daqueles que mais precisam, criando uma comunidade de apoio mútuo.
+              </p>
+            </div>
+
+            <ul class="progress-list" data-reveal="right">
+
+              <li class="progress-item">
+
+                <div class="label-wrapper">
+                  <p>Alimentação</p>
+
+                  <span class="span">40%</span>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-fill" style="width: 40%; background-color: #c7b1dd"></div>
+                </div>
+
+              </li>
+
+              <li class="progress-item">
+
+                <div class="label-wrapper">
+                  <p>Higiene Pessoal</p>
+
+                  <span class="span">20%</span>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-fill" style="width: 20%; background-color: #8caeec"></div>
+                </div>
+
+              </li>
+
+              <li class="progress-item">
+
+                <div class="label-wrapper">
+                  <p>Assistência Médica</p>
+
+                  <span class="span">15%</span>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-fill" style="width: 15%; background-color: #b0d4c1"></div>
+                </div>
+
+              </li>
+
+              <li class="progress-item">
+
+                <div class="label-wrapper">
+                  <p>Abrigo e Vestuário</p>
+
+                  <span class="span">25%</span>
+                </div>
+
+                <div class="progress">
+                  <div class="progress-fill" style="width: 25%; background-color: #e3a6b6"></div>
+                </div>
+
+              </li>
+               <h1>Atualização em tempo real</h1>
+            </ul>
+
+          </div>
+
+          <ul class="grid-list">
+
+
+            <li data-reveal="bottom" data-reveal-delay="0.25s">
+              <div class="about-card">
+
+                <div class="card-icon">
+                  <img src="data:image/png;base64,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" width="52" height="52" loading="lazy" alt="mobile design icon">
+                </div>
+
+                <h3 class="h4 card-title">Alimentação</h3>
+
+                <p class="card-text">
+                  40% dos valores arrecadados foram destinados para a compra de alimentos nutritivos e refeições para os moradores de rua, garantindo que tenham acesso a comida diariamente.
+                </p>
+
+              </div>
+            </li>
+
+            <li data-reveal="bottom" data-reveal-delay="0.5s">
+              <div class="about-card">
+
+                <div class="card-icon">
+                  <img src="data:image/png;base64,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" width="52" height="52" loading="lazy"
+                    alt="web development icon">
+                </div>
+
+                <h3 class="h4 card-title">Higiene Pessoal
+
+</h3>
+
+                <p class="card-text">
+                  20% das doações foram utilizadas para adquirir produtos de higiene pessoal, como sabonetes, escovas de dentes e itens de cuidados básicos, promovendo a saúde e o bem-estar dos beneficiários.
+                </p>
+
+              </div>
+            </li>
+
+            <li data-reveal="bottom" data-reveal-delay="0.75s">
+              <div class="about-card">
+
+                <div class="card-icon">
+                  <img src="data:image/png;base64,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" width="52" height="52" loading="lazy" alt="web seo icon">
+                </div>
+
+                <h3 class="h4 card-title">Assistência Médica</h3>
+
+                <p class="card-text">
+                  15% dos recursos foram reservados para fornecer assistência médica básica e acesso a medicamentos essenciais para os moradores de rua, garantindo que recebam o atendimento necessário para condições de saúde crônicas ou emergenciais.
+                </p>
+
+              </div>
+            </li>
+            <li data-reveal="bottom">
+              <div class="about-card">
+
+                <div class="card-icon">
+                  <img src="data:image/png;base64,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" width="52" height="52" loading="lazy" alt="web design icon">
+                </div>
+
+                <h3 class="h4 card-title">Abrigo e Vestuário</h3>
+
+                <p class="card-text">
+                  25% das doações foram destinados para apoiar abrigos e programas de assistência que oferecem alojamento temporário e roupas adequadas aos moradores de rua, proporcionando condições dignas e seguras para enfrentarem as intempéries.
+                </p>
+
+              </div>
+            </li>
+           
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #PROJECT
+      -->
+
+      <section class="section project" aria-labelledby="project-label">
+        <div class="container">
+
+          <div class="title-wrapper" data-reveal="top">
+
+            <div>
+              <h2 class="h2 section-title" id="project-label">Destino das doações</h2>
+
+              <p class="section-text">
+Saiba melhor sobre o destino das doações e como você pode ajudar.             </p>
+            </div>
+
+            <a href="#" class="btn btn-secondary">Veja os valores destinados para cada segmento e instituição parceira.</a>
+
+          </div>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="project-card project-card-1" style="background-color: #f8f5fb">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class="card-tag" style="color: #a07cc5">Alimentação</p>
+
+                  <h3 class="h3 card-title">Como são separadas e feitas as refeições.</h3>
+
+                  <p class="card-text">
+                    As instituições que recebem as doações preparam três refeições diárias, cuidadosamente feitas com ingredientes frescos e saudáveis. Seguimos rigorosos padrões de higiene e segurança alimentar em cada etapa do processo de preparação das refeições. Além disso, incentivamos o cultivo de  hortas comunitárias, fornecendo ingredientes frescos e nutritivos para essas refeições.
+                  </p>
+
+                  <a href="#" class="btn-text" style="color: #a07cc5">
+                    <span class="span">Conheça o projeto</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="https://nakanoadvogados.com.br/wp-content/uploads/2020/06/doa%C3%A7%C3%A3o-de-alimetos.jpg" width="650" height="370" loading="lazy" alt="Alimentação"
+                    class="w-100">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-2" style="background-color: #f1f5fd">
+
+                <div class="card-content" data-reveal="right">
+
+                  <p class=" card-tag" style="color: #3f78e0">Higiene Pessoal</p>
+
+                  <h3 class="h3 card-title">Garantindo a Higiene Pessoal</h3>
+
+                  <p class="card-text">
+                    O projeto destina um montante para higiene pessoal dos moradores de rua, incluindo itens básicos como sabonete, shampoo, escova de dentes e toalhas. As instituições, com o valor doado, conseguem adquirir esses produtos essenciais e distribuí-los regularmente. Além disso, organizam campanhas de conscientização sobre a importância da higiene pessoal e realizam oficinas educativas para ensinar práticas de autocuidado, contribuindo para a saúde e dignidade dos moradores de rua. Pensando principalmente nas mulheres, o projeto reforça as doações de <b>absorventes</b>.
+                  </p>
+
+                  <a href="#" class="btn-text" style="color: #3f78e0">
+                    <span class="span">Conheça o projeto</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="left">
+                  <img src="https://agenciabrasilia.df.gov.br/wp-conteudo/uploads/2020/06/O-material-tem-15-itens-de-higiene-e-cuidados-pessoais.-Ser%C3%A1-distribu%C3%ADdo-pelas-equipes-de-Consult%C3%B3rio-de-Rua-M%C3%B3vel.-Foto-Breno-Esaki-Secretaria-de-Sa%C3%BAde.jpg" width="600" height="367" loading="lazy" alt="Alimentação"
+                    class="w-100">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-3" style="background-color: #f5faf7">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #7cb798">Assistência Médica</p>
+
+                  <h3 class="h3 card-title">Garantindo a Saúde para Todos</h3>
+
+                  <p class="card-text">
+                    O projeto destina um montante para assistência médica aos moradores de rua, incluindo consultas, exames básicos e medicamentos essenciais. As instituições, com o valor doado, conseguem entrar em contato com clínicas e hospitais locais para cuidados especializados, além de promover campanhas de vacinação e educação em saúde.
+                  </p>
+
+                  <a href="#" class="btn-text" style="color: #7cb798">
+                    <span class="span">Conheça o projeto</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="https://ogimg.infoglobo.com.br/in/25419242-cdc-2cb/FT1086A/97556514_.jpg" width="600" height="367" loading="lazy" alt="Alimentação"
+                    class="w-100">
+                </figure>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="project-card project-card-4" style="background-color: #fcf4f6">
+
+                <div class="card-content" data-reveal="left">
+
+                  <p class=" card-tag" style="color: #d16b86">Abrigo e Vestuário</p>
+
+                  <h3 class="h3 card-title">Garantindo Conforto e Segurança</h3>
+
+                  <p class="card-text">
+                    O projeto destina um montante para fornecer abrigo e vestuário aos moradores de rua, garantindo que tenham acesso a roupas adequadas para cada estação, cobertores e outros itens essenciais para o conforto. As instituições, com o valor doado, conseguem adquirir e distribuir esses itens regularmente, além de colaborar com abrigos locais para oferecer um lugar seguro e acolhedor para pernoitar. Também promovem campanhas de doação de roupas e eventos comunitários para aumentar a conscientização e envolver a sociedade na causa.
+                  </p>
+
+                  <a href="#" class="btn-text" style="color: #d16b86">
+                    <span class="span">Conheça o projeto</span>
+
+                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                  </a>
+
+                </div>
+
+                <figure class="card-banner" data-reveal="right">
+                  <img src="https://www.portalr3.com.br/wp-content/uploads/2021/07/20210729-abrigopinda.jpg" width="620" height="370" loading="lazy" alt="Mobile Design"
+                    class="w-100">
+                </figure>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </div>
+      </section>
+
+
+
+
+
+      <!-- 
+        - #CONTACT
+      -->
+      <!-- Creators Section -->
+      <section class="creators section">
+        <div class="container">
+          <h1 class="section-title h1">Criadores do projeto:</h1>
+          <ul class="creators-grid">
+            <!-- Repeat this block for each creator -->
+            <li class="creator-card" data-reveal="bottom">
+              <img src="ana.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Ana Beatriz Lucas de Morais e Silva</h2>
+              <p class="creator-description">Curso: Odontologia</p>
+            </li>
+            <li class="creator-card" data-reveal="bottom">
+              <img src="alice.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Alice Francisca Moraes</h2>
+              <p class="creator-description">Curso: Estética e Cosmética</p>
+            </li>
+            <li class="creator-card" data-reveal="bottom">
+              <img src="eduardo.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Eduardo Montela Monkosque</h2>
+              <p class="creator-description">Curso: Fisioterapia</p>
+            </li>
+            <li class="creator-card" data-reveal="bottom">
+              <img src="image (1).png" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Maria das Vitórias da Costa Araújo</h2>
+              <p class="creator-description">Curso: Odontologia</p>
+            </li>
+            <!-- Repeat end -->
+          </ul>
+          <ul class="creators-grid">
+            <!-- Repeat this block for each creator -->
+            <li class="creator-card" data-reveal="bottom">
+              <img src="mariaiasmin.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Maria Iasmim Araújo de Oliveira</h2>
+              <p class="creator-description">Curso: Odontologia</p>
+            </li>
+            <li class="creator-card" data-reveal="bottom">
+              <img src="natalia.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Natália Rosa Marçal</h2>
+              <p class="creator-description">Curso: Estética e Cosmética</p>
+            </li>
+            <li class="creator-card" data-reveal="bottom">
+              <img src="yasmin.jpeg" alt="Creator Name" class="creator-image">
+              <h2 class="creator-name">Yasmin Caroline Oliveira Souza </h2>
+              <p class="creator-description">Curso: Estética e cosméticos</p>
+            </li>
+           
+            <!-- Repeat end -->
+          </ul>
+        </div>
+      </section>
+     
+      <section class="criadores">
+              <div class="container3">
+                  <h2 class="h2 section-title">Escolha o Setor para Doação</h2>
+                  <div class="criadores-grid">
+                      <div class="criar-card">
+                          <img src="data:image/png;base64,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" alt="Alimentação" class="criar-image">
+                          <h3 class="criar-name">Alimentação</h3>
+                          <p class="criar-description">Doe para ajudar a alimentar pessoas necessitadas.</p>
+                          <input type="number" id="donation-food" class="input-field" placeholder="Digite o valor da doação" aria-label="Valor da doação para Alimentação">
+                          <button class="btn btn-primary" onclick="makeDonation('Alimentação', 'donation-food')">Doar</button>
+                          <div id="message-food" class="donation-message"></div>
+                      </div>
+                      <div class="criar-card">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJQAAACUCAMAAABC4vDmAAAAZlBMVEX///8AAACzs7Ojo6MRERHw8PBHR0e/v7+3t7cKCgotLS319fXU1NTDw8MbGxsoKCja2tqUlJTk5OQ+Pj6amppfX19qamp6enrOzs5MTExvb2/q6uqpqak3NzcyMjKDg4OLi4tXV1cAXSOXAAAHuklEQVR4nO2c8f96PhDHKYoWSYlE8f//k9/uRobhbD7p8X28Xz+pxLO53W63W4bxEdvkJkV5ERpL62yW8ou+SEggP1uYyXlfNJV9kJCZ3iqWhcrel7wzyQf0hgK9FoXaAJTsgxQ+SLxJ7W9Ilcp+mIqYl2Vw7zzLNj27gg8i0mUKpIoWojoL7X/qXpMOVV3n/lgEqmUVjjoU2sBSVHcRKpBA5dfzlDJsYceFSxyOC0CF8b0EB+mXZbTpfng2aSrxbO5ADskCVIbNttDuNutbaUiEMksbTj/6cOwvY1fop+SfuESqHH9ReILjK/W+zEujW2YPQ5Xyj5IifoFSoLvBEbok/iZXbME7T7THxwFOIzKF3J6tbvfieuT9jte9ANwZrSWBo9YT8rA5faACQ6B69vBSN3PPllG2NzXIj0EZHj4136vcArH/3ZqHr2iFo1BGyC38Zc0wqQd21bicZYVzoIywCbuowzKEJm7AHSXVQc+DMtiuYoqpVwTzOxjcF8q7vjaUwSLusMhD8jeg3oHC7rAriEzMZlcRirEBb6ULZdgB8cpZ/B7TcgHqPcaVaTG7D1KgiDp+/NMHqtLcMH85KPvZUJzer6/CYLVfCyoWILbv1w+/ef2cN1FDKHTVRzhSMcvqQsiwRXn8nQyOs3J4wOmLJduiKGIY3+KiPnoVxTlLVCLy4/vbVjeYREV0LxdE5qAi6cXH5b2/l0ufEjxXWoDhDCMpWOZbAXytsFHVWwyO2R6e65lyCTSgEckfxJhsHI/uqBv2lzN/gXfyKJfAMOyQxhKlEM+Zu7lQrbaHyNITXktzB11hW0cD/TREa5ufbRFyAR3n6ZM6NTi25+CZNliBQijk5FIolzhwpuZg8A6C8aKYD2XYx72zjwWo/P06obb5xAwZLE451aIcunwD6vprUDAgv34JCif5ZxtnQiRX8A0oMd9D8plfgdp8mOZNZtAl2OGAcMQolKGq7J9pXuZEZyFmCVx/UDj6xeoZdOfum1ZOnWygxDh1VIrzW9DRS2YFsdSEmR7VPHnTLI0WSd4RhPOgKHlMyCvhvLz93eNWFuugrjopUcyJkHwaZnTESMJOR1v1pp5rBydCS17acCch5faYWvfKledn9chEENxo27yMJ5hmDipdqAPtVLcFFYD3Ot2GhDk/1aZShnLGe2PSedjfgdr2O2NLkElQ9Wt6UCMd7Nm2wD+o34KC1YvLyNlrQKE7t6JhQTSUKmaSFKGooYVa/1ODGh/1RCml85WgiikUQcWXoDCyMHfn67jOJZzmKiTcVKAwnUJJO29dtaZSgSrJtgKRxNhYtBwUzrho+XlwZub3oGg5583/DOoUUBR+F2qG/qB+EGo4tdFNcwxAsdA7x7f47IXtCEvL0I8EBcOG7kT1goXVLu5ZzyUk7SUUS0jXrQbVLzJskn4rQVUVAeapjOM4qhY/P/UBK0HxQhY/QwtnQcax6uW8daAw3HML4SyeFyxWhMLVr84KJYJYx/WgcJmw60cxy1CuBnWEt/oJH0wSBWtBoUUJPrw6xAqEeCUoVpqtxfz0Xk3zsBSZaULZFLEe1KNl5ez+sS9ITp0CPSj3QpLZhTrW90ah0fOlfaT19KBmqAUFKfh6vcUu0RNwRDuvmlARajMMMAsKqxDqsdi+6EEx2oYLKRSYziFoGtyv7eth6UEZdrKnyesZOlQcu8kHqolZwNH7iQYUXT0ou0m2vhtciKOu9XNdAQpdd7UywMRAGEwCA4U1oPCe/Qk8TtadtaCwSXol/FhjxhtwFSi8ad7ObPIapUwLyrm/iOlSCRTDwPMiroYEWLRYZYoUoaD3ElebZJEnT+qZ13ppyC6wZt0KtaBmLK1JY/Sgnits994+q7acfAbEtaZYYX93hPUx/dXmfaw78Ysbj7Vi0owvelfaifUsq2byHttbeXleyvTaXgxdO73IoCim++baUFL9Qf1BLQ31MJUW1/4tlOFFhcLq6D+GUtMf1B9ULfYYqspsVWh+D8rex7v8cCLomZfXYLQMbSGo4EXdCVupHFtaXQSKxRP7NmS6DFdXLRLkPSfuP6DX0DNcACrjt7B2r01CWXnyzlGV6nkO1MfpQ1VVvumczVGhc+KPUE6lDcWzbpe5dRoMCynMp/SX6ELxzWmxQqEpbn+Sl7nrQmF6lrzTtiX+e2S7vDShhCWP+drjg18cCnPnrnKRMPYRiRfVg8ISU9XKu/dvAp8r2eqnBwWZoJ36Fk7edfvbFPSgDspWzhUepM9Pb2nts+tVVbAC3Z9ZaEFh39NhwsW5fv/TgoLe42tB7aVeXRtq/r5NUbiS0usp2lBjpbrT8pZvKQxatP7LCLKA/UpCLSjcc67jEjwY/vrJaXUoxhhfDb2FTE32BodkD44XgUK5CqF5X3ARq8wELi2oRfVs4sTfgTJPn0Hwh6CaeEEZKiau8tK0wQi29qKqUNR/VKIqAHOvp6c/k3U5mU24qLBB7N9AHQQoGKYt0hbVT2XLv28pvumQMH6xZtNhaSr/P9KgEtcUpltwBzPKpv7gkP/zCd+bjmtp6cZZUNdW7+PVYkRV9TXk/4qbKWFoz+jfqg1pxi7hGTqJpr0nppfyZoa9nZm3o2jXzsA8NtHkcG9Fmfil4HyxlpQfOVVn+w8MQZlXQjZGDwAAAABJRU5ErkJggg==" alt="Higiene Pessoal" class="criar-image">
+                          <h3 class="criar-name">Higiene Pessoal</h3>
+                          <p class="criar-description">Doe para fornecer produtos de higiene pessoal.</p>
+                          <input type="number" id="donation-hygiene" class="input-field" placeholder="Digite o valor da doação" aria-label="Valor da doação para Higiene Pessoal">
+                          <button class="btn btn-primary" onclick="makeDonation('Higiene Pessoal', 'donation-hygiene')">Doar</button>
+                          <div id="message-hygiene" class="donation-message"></div>
+                      </div>
+                      <div class="criar-card">
+                          <img src="data:image/png;base64,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" alt="Assistência Médica" class="criar-image">
+                          <h3 class="criar-name">Assistência Médica</h3>
+                          <p class="criar-description">Doe para ajudar com cuidados médicos.</p>
+                          <input type="number" id="donation-medical" class="input-field" placeholder="Digite o valor da doação" aria-label="Valor da doação para Assistência Médica">
+                          <button class="btn btn-primary" onclick="makeDonation('Assistência Médica', 'donation-medical')">Doar</button>
+                          <div id="message-medical" class="donation-message"></div>
+                      </div>
+                      <div class="criar-card">
+                          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAe1BMVEX///8AAADb29v39/d1dXWHh4fs7Ozv7+8LCwvf39/j4+P09PSfn59XV1e/v796enqPj49KSkpRUVHS0tIzMzNnZ2chISHOzs5iYmI9PT2cnJwXFxcRERFGRkbAwMCsrKwcHBy0tLQsLCypqamDg4NwcHA4ODhdXV0nJycG7QD1AAAI0klEQVR4nO2de5+qLBCATctKu9+sTpd1262+/yd8a9OCSXEGAeP98fx39njhSWAGRPU84/R/rtdxv2qrwfduHZoojnLm69Yfy7lws/HfRhYqJpfWk2FSvl302GRsrmRqSPYtjmmp4+Gxwcxk6epzAH53NofibdPsJzBbwnqMCvzu7EeFW1tnmJ6L/e4s0vftbTNMv0DdBNfz6wj3sMowOF1B/3Jre4cpdAy4nSwyDAbAb5b1n8mM//t1wDraY7jdAT8mzs+B4277+j9LDOMJr9Aa+vwG/hpsMImz/7HCMIR+v/77Rv4SOj4SNQsMww70K8m1+22w4c/d8eMNwzEodjsSbAwd2+GnG0aFl0VA+AN2GG8/2dCHfhPEGOitUn+u4Xv32MXt2IUd02cazoegiNugeqecAAbPzxs9JcBvRfG7EwxW4AiCQbJ5DiBF+ToR/e4EJ5Ckzz7G8bDhS7Z7Gy5gOYK6WjZINstowZeqaMiHJwVH+y4cJJskBddvU7tE8IjnWr9YXY7fOmoVrPUL6VpflxNsNcp6Bjgx1zupOjKBYMAXQjgFSgcOknuDuHonlcRb0LNfxNPYEsxBhvRva9AxgFnWpWD4Vx//wp+lN5GIsjJ0Yaa8rLzVIkv0NkhGZrq1Tgr92tr87rwPkgWjTRVEcHg71nzC2ynfBpAaTxn9wh/UyC2wt0HyrybHPmgUvY6BRvEgnvRA09fQtc2hn4lG/6ILHdeKw9P78NZwAL4PkkERVIbgBNxpYGeoTTIAaeJeURoFh7ffTSSJGSeQ6k8VpPrw7ub30VBiUUyQQseaw7URuLv5r9HB2oMU3NGqM+QO4fCv8QH3gwP43RfS8ZH/sVTUeVWAu6zfki0n4X8po/Gvij5fNskfP+WP8lGLlHy+bJLdu2+PoWwS90jU1rsPNnwUsS19nO1q9dOPP9nQ6/98LQY1D9btfbChkvTDGTaCMyThDBvBGZJwho3gDEk4w0ZwhiScYSM4QxLOsBGcIQln2AjOkIQzbARnSIJqGPRrgC1xg4Z9sPyVyhm3iKw5w7ie340d6j5lc4bH2oa4e4HNGcIlaBKgbpU1ZwjXLjpDZ1hG44YTmRN1nCGDMyThDDmcoQhnyOIMSThDDmcowhmyOEMSzpDDGYpwhizOkIQz5HCGIpwhizMk4Qw5nKEIZ8jiDEk4Qw5nKMIZsjhDEs6QwxmKcIYszpDE/98wzgxRK+qsNPQer4XdoQ5mp+HjNfC4t19lpZR6VVZzhl56OxTy3RPp48RSLyNq0NDz8Af6q9J7qZM0aognbi/OY7nzWmJYA2fI4gw/E2fIUtNw3hlSWY8nx6TmD2rOEL4oFE9vnNZ4b50xw0ha8I+htKQxw9qPvexE3z8SYMwwrWvYknwDrjHDrgLDVmtJv47mepqDEkX6GNFgtOimAyrbyfIfVDwTL6MFET+ZgMcraS/dtMDwRn/CfQqHVFPtMLwxYi/kL2FHawxvtZV5w/Iav5tFhp53eile0DtZZehFrxe5L7H72GXIPmuJVbTNkBmiICuqdYbe64tQuO7GPkNGEVVRLTQkXkUbDRlFRFu00pBUUe00pChaasikN1UV1VZDfFu01hBdUe01xAYNiw0ZxaFgK5sNcVfRakNUW7TbkAkapVfRckNE0LDIsDsv+rJNZVu0x3DUa7U2BS+Wq1K0xjD72FTBvZmKBM4aw/yVbQWK4rZojeHzO8VCxYKgYY3hy6KgvxG1RWsMvdXTQngV3xI4ewzDlyLpKmaGqymCTaOGrCKlLcLvYWNoKqcJX3dLCUHDqGHAQd+/K1QsCRoGDQfDBct5uOwciHesw9cXPoWKbFuUWOZylRMsfn/lfkD6jDNTUbHdTUg3lFoxDz8PyTCmvPBaXFFfbZEJGknRSUVQ7jAXnvwdyrcUsUGDaYtxchjhOch+m1O4nGZDWOyEDRqEG+FqCK5Fak/a+O4rfH0pnJjAaSaqeOk4/ivR8UuRlsBpx5+zJNs2/3n1Ie696R4XND7rKr4TTbhFXeheGtsWJXtFtXBLh1cJci9s0JB6Uko10YV1XCKDY/cLV1EZ/xCzcnDk6/gcRcpVVeS6PGQCN33+SRSQOYa0NAtFwGV0G1zIRSZweb2fYwVv9DRUbp8LJbhnuGJhW8zbdz5apH18YKGhrg7YE/xDBUdxAjd8/M81+7WIL67vyeZuovIu2TNcMOMqYdDIq2VW1JRmiHxAmUjSY8+ACY6ithhki27zhsh12QjOauUyJuwpMMFR1BazanrM/50uZ9Uw/YGeWNofso7t6poiSOCyi0ZbFe6FzxSkp6OeerC9HCu3D0tD//nxV3xGnxHlrVtXQhS0WcV9ZTreLWmL/ZJLW03+iNaMvCeW+Zl17FQFx25x0Mi6ZtxnkHjyiqqpmt7hguO16jH8wgQun2LDLwhnDvh2NPWEXI9zqfgxmaCR/xoD+AcSC8kmTOKwYh0r5qqYoLFPwzg6PR9cWHkxicdE9RR11roE3GT1RhwcQ/EsEIHr+tjNryEx0NDx9+ypx8IxTbgqKq4cu9+sSkjVcBr8jLywWTBDYmWY+DZj/MuecSpKx+OpasGFAcEbCf/Umig4KviyF0fHjCFIx6+iHseflRVWCvTsZm344LgWtY5osP/qlZWYiNGpyJTrRio68Tiqwfz0HD9tzLjlpeamWfY606ma6ZA8PtfjjHWeKo9R6AcAVcGl41p/4DxEqZ83rSDkgiNqrkqO/H61hvm2Kvh0XN9NiSzL1Tu2KIELjt/YGzlUsoRY89iihIiL6r96huF7VFjSRsqG9F71XJUEWS096Dg2hoDrcarnqsjk0+Xm0rb3ItDmqqhkM61fjT6UwAXHldrgmE+1oZak6iNas46zVF10fs6eNNYMc8AapOEkTebJvBpfxGHyTPKn1UXQjszCSjxa03ssioe8HB+xjMNT8JK0Mj5iKc4f/FyVMn6a9mJJhtUFpqIlU6rBvKNsyvuPjsabTtL0085s8W8H6IkpkLtOfw5Vqcx/dwCWCw3NU6IAAAAASUVORK5CYII=" alt="Abrigo e Vestuário" class="criar-image">
+                          <h3 class="criar-name">Abrigo e Vestuário</h3>
+                          <p class="criar-description">Doe para fornecer abrigo e vestuário.</p>
+                          <input type="number" id="donation-shelter" class="input-field" placeholder="Digite o valor da doação" aria-label="Valor da doação para Abrigo e Vestuário">
+                          <button class="btn btn-primary" onclick="makeDonation('Abrigo e Vestuário', 'donation-shelter')">Doar</button>
+                          <div id="message-shelter" class="donation-message"></div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+      <section class="section contact" aria-label="contact">
+        <div class="container">
+
+          <div class="contact-card">
+
+            <div class="contact-content" data-reveal="left">
+
+              <div class="card-icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/9669/9669069.png" width="44" height="44" loading="lazy" alt="envelop icon">
+              </div>
+
+              <h2 class="h2 section-title">Compartilhe sua Experiência!</h2>
+<br>
+              <p class="section-text">
+                Queremos ouvir sua opinião! Este é o lugar onde você pode compartilhar suas experiências, ideias e sugestões sobre o aplicativo Compasso Solidário. Sua opinião é valiosa para nós e nos ajuda a melhorar continuamente nossa plataforma para tornar a experiência de doação mais eficaz e significativa para todos.<br>
+                <BR>
+                Fique à vontade para compartilhar seus pensamentos sobre a usabilidade do aplicativo, a transparência das doações, a qualidade do suporte ao cliente ou qualquer outra coisa que você gostaria de destacar. Estamos aqui para ouvir e trabalhar juntos para criar um ambiente mais solidário e inclusivo.
+<BR><br>
+                Agradecemos sua contribuição e esperamos ansiosamente por suas mensagens!
+
+                
+              </p>
+
+            </div>
+
+            <form action="" class="contact-form" data-reveal="right">
+
+              <div class="input-wrapper">
+                <input type="text" name="name" placeholder="Nome *" required class="input-field">
+
+                <input type="email" name="email_address" placeholder="Email *" required class="input-field">
+              </div>
+
+              <textarea name="message" placeholder="Mensagem *" required class="input-field"></textarea>
+
+              <button type="submit" class="btn btn-secondary">Envie sua opinião!</button>
+
+            </form>
+
+          </div>
+
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer">
+    <div class="container">
+
+      <p class="copyright">
+        © 2024 CompassoSolidario. Ajudando Moradores de Rua em Belo Horizonte.
+      </p>
+
+      <ul class="social-list">
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-twitter"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-facebook"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-dribbble"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-instagram"></ion-icon>
+          </a>
+        </li>
+
+        <li>
+          <a href="#" class="social-link">
+            <ion-icon name="logo-youtube"></ion-icon>
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </footer>
+
+
+
+
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
